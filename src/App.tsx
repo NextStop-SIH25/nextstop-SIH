@@ -9,6 +9,10 @@ import BookedTickets from "./pages/BookedTickets";
 import Passes from "./pages/Passes";
 import Schedule from "./pages/Schedule";
 import SavedRoutes from "./pages/SavedRoutes";
+import Profile from "./pages/Profile";
+import Languages from "./pages/Languages";
+import UpdateVersion from "./pages/UpdateVersion";
+import SOS from "./pages/SOS";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +30,10 @@ const App = () => (
           <Route path="/passes" element={<Passes />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/saved-routes" element={<SavedRoutes />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/languages" element={<Languages />} />
+          <Route path="/update" element={<UpdateVersion />} />
+          <Route path="/sos" element={<SOS />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,6 +1,10 @@
 import { Bell, Menu } from "lucide-react";
 
-const TopBar = () => {
+interface TopBarProps {
+  onSidebarToggle: () => void;
+}
+
+const TopBar = ({ onSidebarToggle }: TopBarProps) => {
   return (
     <div className="flex items-center justify-between p-4 bg-card border-b border-border">
       {/* Notification Section */}
@@ -22,6 +26,7 @@ const TopBar = () => {
       {/* Sidebar Toggle */}
       <button 
         className="touch-target"
+        onClick={onSidebarToggle}
         aria-label="Open menu"
       >
         <Menu className="icon-md" />

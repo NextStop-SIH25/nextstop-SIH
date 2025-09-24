@@ -1,6 +1,9 @@
 import { Search, Calendar, MapPin, Navigation } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const MapSection = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="p-4 space-y-4">
       {/* Map Container */}
@@ -43,11 +46,17 @@ const MapSection = () => {
 
         {/* Action Buttons */}
         <div className="flex space-x-3">
-          <button className="btn-primary flex-1 flex items-center justify-center space-x-2">
+          <button 
+            onClick={() => navigate('/track-bus')}
+            className="btn-primary flex-1 flex items-center justify-center space-x-2"
+          >
             <Search className="icon-sm" />
             <span>Find Bus</span>
           </button>
-          <button className="btn-secondary flex items-center justify-center space-x-2 px-6">
+          <button 
+            onClick={() => navigate('/schedule')}
+            className="btn-secondary flex items-center justify-center space-x-2 px-6"
+          >
             <Calendar className="icon-sm" />
             <span>Schedule</span>
           </button>
