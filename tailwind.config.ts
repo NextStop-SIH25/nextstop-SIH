@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -47,6 +48,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        notification: {
+          DEFAULT: "hsl(var(--notification))",
+          foreground: "hsl(var(--notification-foreground))",
+        },
+        "map-bg": "hsl(var(--map-bg))",
+        "route-active": "hsl(var(--route-active))",
+        "route-inactive": "hsl(var(--route-inactive))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

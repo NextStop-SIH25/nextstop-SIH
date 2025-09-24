@@ -2,41 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* NextStop Transportation App Design System - Accessible & Mobile-First */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* High-contrast color system for accessibility */
+    --background: 0 0% 98%;
+    --foreground: 210 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Transportation blue - trustworthy and familiar */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 84% 50%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Clean secondary for less prominent elements */
+    --secondary: 210 15% 96%;
+    --secondary-foreground: 210 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Subtle backgrounds */
+    --muted: 210 15% 95%;
+    --muted-foreground: 210 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Success green for active/available states */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Warning/destructive states */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs with higher contrast */
+    --border: 210 15% 85%;
+    --input: 210 15% 90%;
+    --ring: 214 84% 56%;
 
-    --radius: 0.5rem;
+    /* Notification/alert colors */
+    --notification: 25 95% 53%;
+    --notification-foreground: 0 0% 100%;
+
+    /* Map and transportation specific colors */
+    --map-bg: 210 15% 97%;
+    --route-active: 142 76% 36%;
+    --route-inactive: 210 15% 65%;
+
+    /* Large radius for friendly, accessible design */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +117,65 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-size: 16px; /* Larger base font for accessibility */
+  }
+}
+
+/* Accessibility and Transportation Utilities */
+@layer components {
+  /* Large touch targets for mobile accessibility */
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px] flex items-center justify-center;
+  }
+
+  /* Accessible button styles */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg touch-target transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/80 text-secondary-foreground font-medium py-3 px-6 rounded-lg touch-target transition-colors;
+  }
+
+  /* Map container styling */
+  .map-container {
+    @apply bg-map-bg rounded-lg border-2 border-border min-h-[300px] relative overflow-hidden;
+  }
+
+  /* Route input styling */
+  .route-input {
+    @apply w-full p-4 text-lg border-2 border-input rounded-lg bg-card focus:ring-2 focus:ring-primary focus:border-primary transition-colors;
+  }
+
+  /* Schedule item styling */
+  .schedule-item {
+    @apply flex items-center justify-between p-4 bg-card border border-border rounded-lg hover:bg-secondary/50 transition-colors;
+  }
+
+  /* Bottom nav button */
+  .nav-button {
+    @apply flex flex-col items-center justify-center py-2 px-1 text-xs font-medium text-muted-foreground hover:text-primary transition-colors touch-target;
+  }
+
+  .nav-button.active {
+    @apply text-primary;
+  }
+
+  /* High contrast text for accessibility */
+  .text-accessible {
+    @apply text-base font-medium leading-relaxed;
+  }
+
+  /* Icon sizing for accessibility */
+  .icon-sm {
+    @apply w-5 h-5;
+  }
+
+  .icon-md {
+    @apply w-6 h-6;
+  }
+
+  .icon-lg {
+    @apply w-8 h-8;
   }
 }
