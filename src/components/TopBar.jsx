@@ -1,10 +1,6 @@
 import { Bell, Menu } from "lucide-react";
 
-interface TopBarProps {
-  onSidebarToggle: () => void;
-}
-
-const TopBar = ({ onSidebarToggle }: TopBarProps) => {
+const TopBar = ({ onSidebarToggle }) => {
   return (
     <div className="flex items-center justify-between p-4 bg-card border-b border-border">
       {/* Notification Section */}
