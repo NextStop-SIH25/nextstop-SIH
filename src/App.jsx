@@ -12,6 +12,9 @@ import SavedRoutes from "./pages/SavedRoutes";
 import Profile from "./pages/Profile";
 import Languages from "./pages/Languages";
 import UpdateVersion from "./pages/UpdateVersion";
+import GetStarted from "./pages/GetStarted";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import SOS from "./pages/SOS";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +27,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Index />} />
           <Route path="/track-bus" element={<TrackBus />} />
           <Route path="/booked-tickets" element={<BookedTickets />} />
