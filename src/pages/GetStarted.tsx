@@ -17,13 +17,7 @@ const GetStarted = () => {
           />
         </div>
 
-        {/* Bus Illustration Placeholder */}
-        <div className="mb-8 w-80 h-48 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl flex items-center justify-center border border-border/20">
-          <div className="text-center space-y-2">
-            <div className="text-6xl">🚌</div>
-            <p className="text-sm text-muted-foreground">Bus Stop Illustration</p>
-          </div>
-        </div>
+
 
         {/* Tagline */}
         <div className="text-center mb-12 space-y-2">

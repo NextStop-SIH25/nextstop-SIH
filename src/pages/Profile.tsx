@@ -1,8 +1,12 @@
 import { User, Mail, Phone, MapPin, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Profile = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const fullName = (user?.user_metadata as { full_name?: string } | undefined)?.full_name || "User";
+  const email = user?.email || "";
 
   return (
     <div className="min-h-screen bg-background">
@@ -26,7 +30,7 @@ const Profile = () => {
           <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
             <User className="w-12 h-12 text-primary-foreground" />
           </div>
-          <h2 className="text-xl font-semibold">John Doe</h2>
+          <h2 className="text-xl font-semibold">{fullName}</h2>
           <p className="text-muted-foreground">NextStop User</p>
         </div>
 
@@ -36,7 +40,7 @@ const Profile = () => {
             <Mail className="icon-md text-muted-foreground" />
             <div>
               <p className="text-sm text-muted-foreground">Email</p>
-              <p className="font-medium">john.doe@email.com</p>
+              <p className="font-medium">{email || "Not set"}</p>
             </div>
           </div>
 
