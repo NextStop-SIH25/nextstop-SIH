@@ -1,5 +1,6 @@
 import { X, User, Globe, RefreshCw, AlertTriangle, LogOut, Github } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -8,6 +9,15 @@ interface SidebarProps {
 
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+  const displayName = (user?.user_metadata as { full_name?: string } | undefined)?.full_name || user?.email || "User";
+  const displayEmail = user?.email || "";
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate('/get-started');
+    onClose();
+  };
 
   const handleNavigation = (path: string) => {
     navigate(path);
@@ -51,8 +61,10 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               <User className="icon-md text-primary-foreground" />
             </div>
             <div>
-              <p className="font-semibold text-accessible">John Doe</p>
-              <p className="text-sm text-muted-foreground">john.doe@email.com</p>
+              <p className="font-semibold text-accessible">{displayName}</p>
+              {displayEmail && (
+                <p className="text-sm text-muted-foreground">{displayEmail}</p>
+              )}
             </div>
           </div>
         </div>
@@ -93,7 +105,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             </button>
             
             <button 
-              onClick={() => handleNavigation('/login')}
+              onClick={handleLogout}
               className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-accent/10 text-left touch-target text-notification"
             >
               <LogOut className="icon-md" />
