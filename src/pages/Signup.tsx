@@ -82,13 +82,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* Illustration */}
-        <div className="mb-6 w-64 h-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center border border-border/20">
-          <div className="text-center space-y-1">
-            <div className="text-4xl">👥🚌</div>
-            <p className="text-xs text-muted-foreground">Join NextStop</p>
-          </div>
-        </div>
 
         {/* Form */}
         <div className="w-full max-w-sm space-y-6">
